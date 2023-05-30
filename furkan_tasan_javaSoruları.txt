@@ -1,0 +1,266 @@
+//**********************************  ATM PROJESİ  *********************************************
+package atmprojesi;
+
+import java.util.Scanner;
+
+public class AtmProjesi {
+
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Güncel bakiyenizi girin : ");
+        int bakiye = scanner.nextInt();
+        
+        System.out.println("1.işlem bakiyeyi görüntüle");
+        System.out.println("2.işlem hesaptan para çek");
+        System.out.println("3.işlem hesaptan para yükle");
+        System.out.println("4.işlem işlemleri sonlandırmak için 0 basın");
+        System.out.println("atm aktif etmek için lutfen 0 haricinde bir sayı giriniz");
+        
+        
+        int islem = scanner.nextInt();
+            while(islem!=0){
+                System.out.println("Yapmak istediğiniz işlemi seçin : ");
+                 islem = scanner.nextInt();
+            switch(islem){
+            
+                case 1:
+                    System.out.println("Bakiyeniz "+bakiye+"TL dir.");
+                    
+                     
+                    break;
+                    
+                case 2:
+                    System.out.print("Ne kadar para çekmek istiyorsunuz: ");
+                    int miktar = scanner.nextInt();
+                    if(bakiye > miktar){
+                    bakiye -=miktar;
+                    System.out.println("Güncel bakiyeniz: " + bakiye + " TL dir.");
+                    }
+                    else{
+                        System.out.println("Yetersiz bakiye hesabınızda " + bakiye +"Tl bulunmaktadır...");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Ne kadar para yatırmak istiyorsunuz: ");
+                     miktar = scanner.nextInt();
+                     bakiye+=miktar;
+                    System.out.println("Güncel bakiyeniz: " + bakiye + " TL dir.");
+                    break;
+                default :
+                    System.out.println("Yanlış işlem yaptınız");
+                    break;
+                
+        }
+            }
+            System.out.println("işleminiz sonlandı tekrar bekleriz...");
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
+//**********************************  BKİ HESAPLAMA  *********************************************
+package boykiloındeksi;
+
+import java.util.Scanner;
+
+
+public class BoyKiloIndeksi {
+
+   
+    public static void main(String[] args) {
+        int kilo,boy;
+        double bki;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Kilonuzu girin : ");
+        kilo = scanner.nextInt();
+        System.out.print("Boyunuzu girin : ");
+        boy = scanner.nextInt();
+        
+        bki = kilo/(boy*boy);
+        
+     if(bki <18)
+    {
+       System.out.print("ZAYIF ");
+    }   
+    else if(bki >= 18 && bki <25)
+    {
+        System.out.print("NORMAL ");
+    }
+    else if(bki >= 25 && bki <30)
+    {
+        System.out.print("KİLOLU ");        
+    }
+    else if(bki >= 30 && bki <35)
+    {
+        System.out.print("OBEZ" );
+    }
+    else
+    {
+        System.out.print("CİDDİ OBEZ" );
+    }   
+
+
+        
+    }
+    
+}
+
+
+
+
+
+
+
+//**********************************  PAY-PAYDA   *********************************************
+package paypaydasorusu;
+
+import java.util.Scanner;
+
+
+public class PayPaydaSorusu {
+
+   
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("pay değerini girin : ");
+        int pay = scanner.nextInt();
+        
+        System.out.print("pay değerini girin : ");
+        int payda = scanner.nextInt();
+        
+        if(pay<payda){
+         System.out.print("Basit kesir girdiniz... ");
+        }
+        
+        else if(pay==payda){
+            System.out.print("Basit kesir girdiniz... ");
+        }
+        else{
+           int mod = pay%payda;
+           int tamSayi = pay/payda;
+           System.out.print("Bileşik bir kesir girdiniz kesir değeri : " + tamSayi + " tam " + mod +"/" +payda + "  ");
+        }
+        
+
+
+    }
+    
+}
+
+
+
+
+
+
+
+//**********************************  ÜÇGENSEL SAYİLAR  *********************************************
+
+package ucgenselsayilar;
+
+
+public class UcgenselSayilar {
+
+    
+    public static void main(String[] args) {
+        
+        int terim =1;
+        int sayi=0;
+        
+        while(terim<15){
+            sayi += terim;
+            System.out.print(sayi+", ");
+            terim++;
+        }
+        
+    }
+    
+}
+
+
+
+
+
+
+//**********************************  X DAKİKA SONRA SAAT KAÇ  *********************************************
+package xdakikasonrasaatkac;
+
+import java.util.Scanner;
+
+
+public class XDakikaSonraSaatKac {
+
+    
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("100 ile 500 arasında bir sayi giriniz : ");
+        int sayi = scanner.nextInt();
+        
+        while( sayi<100 || sayi>500){
+            System.out.println("Geçersiz ilem ");
+            System.out.print("100 ile 500 arasında bir sayi giriniz : ");
+            sayi = scanner.nextInt();
+            
+        }
+        
+        int saat = 8+(sayi/60);
+        int dakika =30+( sayi%60);
+        
+        if(dakika>60){
+            saat += dakika/60;
+            dakika = dakika%60;
+        }
+        System.out.println("Sınavın başlangıç saati 08.30 dur. bundan "+ sayi + " dk sonra saat " +saat+"."+dakika+" olacaktır.");
+        
+    }
+    
+}
+
+
+
+
+//**********************************  KALORİ HESAPLAMA  *********************************************
+
+package kalorihesaplama;
+
+import java.util.Scanner;
+
+
+public class KaloriHesaplama {
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int kalori;
+        System.out.print("Cinsiyeti girin (Erkek-Kadın):  ");
+        String cinsiyet = scanner.nextLine();
+        
+        System.out.print("Adım sayisini girin :  ");
+        int adim = scanner.nextInt();
+        
+        if(cinsiyet.equals("Erkek")){
+            
+            kalori = (adim*45)/500;
+           
+        }
+        else{
+            kalori = (adim*30)/500;
+        }
+        System.out.print("Yakılan kalori : "+kalori);
+        
+
+
+    }
+    
+}
+

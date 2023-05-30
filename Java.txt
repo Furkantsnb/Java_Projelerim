@@ -1,0 +1,187 @@
+*********************************************************** main dosyası ***********************************************************
+
+package employeemain;
+import java.util.Scanner;
+public class EmployeeMain {
+
+   
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Employee employee =new Employee("furkan tasan","12345") {};
+        
+        Login input = new Login();
+        
+         System.out.println("***************************************************************");
+         System.out.println("                     Kullanici girisi");
+         System.out.println("****************************************************************");
+        
+        
+    
+        while(true){
+        if(input.login(employee)){
+            System.out.println("******************* Giris basarili! *******************");
+            // İşçi özelliklerini girme
+          
+            
+            
+            System.out.print("İsci adi: ");
+            String userName = scanner.nextLine();
+            employee.setName(userName);
+            
+            System.out.print("Departman adi: ");
+            String department = scanner.nextLine();
+            employee.setDepartment(department);
+            
+            System.out.print("İsci tecrübesi: ");
+            String experience = scanner.nextLine();
+            employee.setExperience(experience);
+            
+             System.out.print("İsci Maası: ");
+            int wage = scanner.nextInt();
+            employee.setWage(wage);
+            
+            
+            // Diğer özellikleri de burada girilebilir
+            // ...
+            // İşçi bilgilerini gösterme
+            UI.showWorkerInfo(employee);
+            return;
+        }
+        else{
+            System.out.println("giris basarisiz tekrar deneyin...");
+
+        }
+       
+         
+    }
+        
+    }
+    
+}
+
+
+*********************************************************** işçi sınıfı ***********************************************************
+
+package employeemain;
+
+
+ abstract class Employee {
+    private String userName;
+    private String password;
+    private String name;
+    private String department;
+    private String experience;
+    private int wage;
+    // Diğer özellikler de eklenebilir
+    
+    public Employee(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+        
+    }
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setParola(String password) {
+        this.password = password;
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+    
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+    
+    public int getWage(){
+        return wage;
+    }
+    
+    public void setWage(int wage){
+        this.wage = wage;
+    }
+    
+    // Diğer getter/setterlar
+    
+}
+
+
+
+
+*********************************************************** kullanıcı girişi ***********************************************************
+
+
+package employeemain;
+import java.util.Scanner;
+
+
+public class Login {
+     Scanner scanner = new Scanner(System.in);
+     public boolean login (Employee employee){
+       
+        String userName;
+        String password;
+        System.out.print("Kullanici adi : ");
+        userName = scanner.nextLine();
+        System.out.print("parola : ");
+        password = scanner.nextLine();
+        
+        if(employee.getUserName().equals(userName) && employee.getPassword().equals(password)) {
+            return true ;
+                    }
+        else
+            return false ;
+            
+}
+}
+
+
+
+*********************************************************** ui sınıfı ***********************************************************
+
+
+package employeemain;
+
+
+public class UI {
+    
+    public static void showWorkerInfo(Employee employee) {
+        // İşçi bilgilerini gösterme işlemi burada yapılabilir
+        System.out.println("******************* isci bilgileri *******************");
+        System.out.println("İsci adi: " + employee.getName());
+        System.out.println("Departman: " + employee.getDepartment());
+        System.out.println("İsci tecrubesi: " + employee.getExperience());
+        System.out.println("İsci maasi: " + employee.getWage());
+        // Diğer özellikler de burada gösterilebilir
+        // ...
+    }
+    
+}
+
+
